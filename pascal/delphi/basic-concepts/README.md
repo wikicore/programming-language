@@ -5,6 +5,7 @@
 Conhecimento necessários:
 * Algoritimo
 * Paradigma procedural
+* Estrutura de dados
 * IDE
 
 <br>
@@ -43,13 +44,13 @@ end.
 
 ```program``` seguido pelo nome do programa.
 
-```uses``` importa outros modulos, parecido com ```#include``` em C e ```import``` em Java.
+```uses``` importa outras unidades, parecido com ```#include``` em C e ```import``` em Java.
 
 ```begin``` e ```end;``` começa e termina um bloco, procedimento, função e etc, parecido com ```{ }``` em C.
 
 ```end.``` finaliza o programa.
 
-```try``` e ```except``` tratam uma exceção, parecido com ```try/catch``` em Java.
+```try except``` tratam uma exceção, parecido com ```try catch``` em Java.
 
 <br>
 
@@ -140,6 +141,34 @@ var
 
 <br>
 
+## Arrays
+
+Declarando e iniciando arrays estáticos, dinâmicos e multidimensionais:
+
+```pascal
+var
+  { arrays }
+  array1: array[0..2] of Integer;
+  array2: array[0..2] of Integer = (1, 2, 3);
+
+  { multidimensional arrays }
+  multiDimArray1: array [0..2] of array[0..1] of Integer;
+  multiDimArray2: array [0..2, 0..1] of Integer;
+  multiDimArray3: array [0..2, 0..1] of Integer = ((1, 2),(3, 4),(5, 6));
+
+  { dynamic arrays }
+  dinamArray1: array of Integer;
+  dinamArray2: array of Integer = [1, 2, 3];
+
+  { multidimensional dynamic arrays }
+  multiDimDinamArray1: array of array of Integer;
+  multiDimDinamArray2: array of array of Integer = [[1, 2],[3, 4],[5, 6]];
+```
+
+[Mais sobre arrays](https://docwiki.embarcadero.com/RADStudio/Sydney/en/Structured_Types_(Delphi)#Arrays)
+
+<br>
+
 ## Condicionais
 
 Declaração ```if else```:
@@ -155,7 +184,7 @@ begin
   else if x = y then
     Write('x is equal to y')
   else
-    Write('x is less than y'); { Dot and comma is placed
+    Write('x is less than y'); { Semicolon is placed
     only in the last condition }
 end.
 ```
@@ -210,6 +239,21 @@ begin
 end.
 ```
 
+Laço ```for in```, parecido com ```foreach``` do Java:
+```pascal
+var
+  array1: array of Integer = [1, 2, 3];
+  e: Integer;
+
+begin
+  { for each element in array }
+  for e in array1 do
+  begin
+    Writeln(e);
+  end;
+end.
+```
+
 <br>
 
 ## Funções e Procedimentos
@@ -236,4 +280,47 @@ procedure print (text: string);
 begin
   Write(text);
 end;
+```
+<br>
+
+## Unidades
+
+Importando outras unidades:
+
+```pascal
+
+uses { import System.Math unit }
+  System.SysUtils, System.Math;
+
+begin
+  { using the function IntPower() of System.Math }
+  Write(IntPower(10, 2));
+end.
+```
+<br>
+
+[Lista de unidades](https://docwiki.embarcadero.com/Libraries/Sydney/en/Unit_List)
+
+[Unidade System](https://docwiki.embarcadero.com/Libraries/Sydney/en/System)
+
+[Unidade System.SysUtils](https://docwiki.embarcadero.com/Libraries/Sydney/en/System.SysUtils)
+
+<br>
+
+Mais usados de System.SysUtils:
+
+```pascal
+Writeln(argument);
+
+Readln(argument);
+
+StrToInt('10');
+
+{ write this and press ctrl + space to open all available 
+  functions and procedures }
+StrTo..(argument);
+
+FloatTo..(argument);
+
+{ ...etc. }
 ```
