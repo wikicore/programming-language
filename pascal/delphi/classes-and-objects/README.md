@@ -47,13 +47,13 @@ end;
 
 <br>
 
-## Instanciando um Objeto
+## Instanciando Um Objeto
 
 Instanciando um objeto da classe pessoa criada anteriormente:
 
 ```pascal
 var
-  p1, p2: People;
+  p1: People;
 
 begin
   { instantiates an object }
@@ -61,11 +61,39 @@ begin
   p1.setName('Jonathan');
   p1.setAge(24);
 
-  p2 := People.Create;
-  p2.setName('Guilherme');
-  p2.setAge(19);
-
-  Writeln(p2.toString);
   Writeln(p1.toString);
 end.
+```
+
+<br>
+
+## Construtores
+
+Criando um construtor para a classe People:
+```pascal
+{ inside class }
+    public
+      constructor Create(nameParam: string; ageParam: Integer); overload;
+
+{ implementation }
+constructor People.Create(nameParam: string; ageParam: Integer);
+begin
+  name := nameParam;
+  age := ageParam;
+end;
+```
+
+<br>
+
+## Herança
+
+Criando uma nova classe e herdando da classe People:
+```pascal
+  User = class(People)
+    private
+      id: Integer;
+    public
+      procedure setId(idParam: Integer);
+      function toString(): string;
+  end;
 ```
