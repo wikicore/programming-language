@@ -283,6 +283,19 @@ end;
 ```
 <br>
 
+## Sobrecarga de Procedimentos e Funções
+
+Para criar vários procedimentos e/ou funções com mesmo nome é usado a palavra ```overload```:
+
+```pascal
+function sum (num1: Real; num2: Real): Real; overload;
+begin
+  sum := num1 + num2;
+end;
+```
+
+<br>
+
 ## Unidades
 
 Importando outras unidades:
